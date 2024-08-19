@@ -29,11 +29,16 @@
     https://github.com/TempeHS/TempeHS_Ardunio_Bootcamp/blob/main/04.digitalWrite_digitalRead/Bootcamp-digitalWrite.png
 */
 
+static unsigned int ledPin = 13;
 
 void setup() {
-  
+  // initialize digital pin LED_BUILTIN as an output
+  pinMode(ledPin, OUTPUT);
 }
-
+// the loop function runs over and over again forever
 void loop() {
-  
+  digitalWrite(ledPin, HIGH);
+  delay(1000);
+  digitalWrite(ledPin, LOW);
+  delay(1000);
 }

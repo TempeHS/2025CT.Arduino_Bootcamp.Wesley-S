@@ -1,5 +1,5 @@
 /*
-  Author: 
+  Author: Wesley S
   
   Learning Intention:
   The students will learn how to wire a pull-up and pull-down switch and configure PINs for
@@ -29,16 +29,17 @@
     https://github.com/TempeHS/TempeHS_Ardunio_Bootcamp/blob/main/04.digitalWrite_digitalRead/Bootcamp-digitalWrite.png
 */
 
-static unsigned int ledPin = 13;
 
-void setup() {
-  // initialize digital pin LED_BUILTIN as an output
+static unsigned int ledPin = 6;
+static unsigned int buttonPin = 5;
+bool readPin;
+
+void setup (){
   pinMode(ledPin, OUTPUT);
+  pinMode(buttonPin, INPUT);
 }
-// the loop function runs over and over again forever
-void loop() {
-  digitalWrite(ledPin, HIGH);
-  delay(1000);
-  digitalWrite(ledPin, LOW);
-  delay(1000);
+
+void loop(){
+  readPin = digitalRead(buttonPin);
+  digitalWrite(ledPin, !readPin);
 }

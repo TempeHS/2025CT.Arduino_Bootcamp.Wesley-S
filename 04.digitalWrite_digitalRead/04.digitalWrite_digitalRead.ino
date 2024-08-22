@@ -44,4 +44,10 @@ void setup (){
 void loop(){
   readPin = digitalRead(buttonPin);
   digitalWrite(ledPin, !readPin);
+
+  Serial.print ("ledValue:");
+  Serial.print(readPin);
+  Serial.print(",");
+  Serial.print("buttonvalue:");
+  Serial.println(!readPin);
 }

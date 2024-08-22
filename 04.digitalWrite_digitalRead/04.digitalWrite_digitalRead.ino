@@ -37,6 +37,8 @@ bool readPin;
 void setup (){
   pinMode(ledPin, OUTPUT);
   pinMode(buttonPin, INPUT);
+  Serial.begin(9600);
+  Serial.println("Debug");
 }
 
 void loop(){

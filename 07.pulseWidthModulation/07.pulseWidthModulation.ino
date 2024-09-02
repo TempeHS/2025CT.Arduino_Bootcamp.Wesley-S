@@ -22,20 +22,21 @@
 */
 
 
-static unsigned int ledPin = 3;
+unsigned static int rLED = 11;
+unsigned static int gLED = 10;
+unsigned static int bLED = 9;
 
-
-void setup() 
+void setup()
 {
-  Serial.begin(9600);
-  Serial.print("Debug Check");
-  pinMode(ledPin, OUTPUT);
-  pinMode(ledPin, INPUT);
+  pinMode(rLED, OUTPUT);
+  pinMode(gLED, OUTPUT);
+  pinMode(bLED, OUTPUT);
 }
 
-void loop() 
+void loop()
 {
-  int val = analogRead(A3);
-  val = val / 4;
-  analogWrite(ledPin, val);
+  analogWrite(rLED,225);
+  analogWrite(gLED,225);
+  analogWrite(bLED,3);
 }
+

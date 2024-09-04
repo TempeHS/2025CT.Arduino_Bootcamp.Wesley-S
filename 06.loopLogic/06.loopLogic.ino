@@ -35,11 +35,49 @@
     
 */
 
-void setup() {
-  
+static unsigned int LEDpin = 3;
+
+
+void setup() 
+{
+  pinMode(LEDpin, OUTPUT); 
 }
 
-void loop() {
-      
+void loop() 
+  {
+
+    for (int i = -256; i < 0; i++)
+    {
+      unsigned val = i;
+      analogWrite(LEDpin, val);
+      delay (25);
+    }
+  }
+
+
+/*  
+
+static unsigned int LEDpin = 3;
+
+
+void setup() 
+{
+  pinMode(LEDpin, OUTPUT); 
 }
 
+void loop() 
+  {
+
+    for (int i = 0; i < 256; i++)
+    {
+      analogWrite(LEDpin, i);
+      delay (25);
+    }
+    for (int i = 256; i > 1; i--)
+    {
+      analogWrite(LEDpin, i);
+      delay (25);
+    }
+  }
+
+*/

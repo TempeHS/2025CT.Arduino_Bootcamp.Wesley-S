@@ -1,5 +1,5 @@
 /*
-  Author: 
+  Author: Wesley S - 16/09/2024
   
   Learning Intention:
   The students will learn how to wire a four pin ultrasonic sensor and configure it to measure distance using a library.
@@ -25,11 +25,42 @@
 
 #include "Ultrasonic.h"
 
-void setup()
+#include <Servo.h>
+
+Servo myservo;
+Ultrasonic mysensor(5);
+
+unsigned static int servoPin = 7;
+unsigned static int potpin = A2;
+
+void setup() 
 {
-  
+  myservo.attach(servoPin);
+  Serial.begin(9600);
 }
-void loop()
+
+void loop() 
 {
-  
+  Serial.println(mysensor.distanceRead());
+  int val = analogRead(potpin);
+  val = map(val, 0, 1023, 0, 180);
+  myservo.write(val);
+
+  if(mysensor.distanceRead >= 10)); 
+  {
+    
+
+
+  }
+
+  if());
+  {
+    
+
+
+  }
+
+
+
+
 }

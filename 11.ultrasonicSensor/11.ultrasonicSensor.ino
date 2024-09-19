@@ -33,6 +33,10 @@ Ultrasonic mysensor(5);
 unsigned static int servoPin = 7;
 unsigned static int potpin = A2;
 
+unsigned long currentMillis = millis();
+
+
+
 void setup() 
 {
   myservo.attach(servoPin);
@@ -43,15 +47,13 @@ void loop()
 {
       if (mysensor.distanceRead() >= 10)
   {
-    int val = analogRead(potpin);
-    val = map(val, 100, 0, 90, 180);
-    myservo.write(val);
+    myservo.write(90);
+    Serial.println("close gate");
   }
 
       if (mysensor.distanceRead() <= 10)
   { 
-    int val = analogRead(potpin);
-    val = map(val, 100, 0, 90, 180);
-    myservo.write(val); 
+    myservo.write(0);
+    Serial.println("open gate");
   }
 }

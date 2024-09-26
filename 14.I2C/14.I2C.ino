@@ -27,40 +27,83 @@
 */
 
 #include "Arduino_SensorKit.h"
-  
-  unsigned int x = 60;
-  unsigned int y = 120;
-  
-  void setup(
-    
-  )
-  {
-    Oled.begin();
-    Oled.setFlipMode(true);
-    Serial.begin(9600);
-    Accelerometer.begin();
-  }
-  
-  void loop()
-  {
-  while (!gameOver())
-  {
-      Oled.setFont(u8x8_font_chroma48medium8_r);   // choose a suitable font
-      Oled.setCursor(x, y);
-      Oled.print("O");    // write something to the internal memory
-      delay(100);
-    
-  
-  
-    Serial.print("x:");
-    Serial.print(Accelerometer.readX());
-    Serial.print("  ");
-    Serial.print("y:");
-    Serial.print(Accelerometer.readY());        
-    Serial.print("  ");
-    Serial.print("z:");
-    Serial.println(Accelerometer.readZ());
-  
-    delay(500);
-  }
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  while(!Serial);
+  Accelerometer.begin();
 }
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  // 3 axis
+  Serial.print("x:"); 
+  Serial.print(Accelerometer.readX()); 
+  Serial.print("  ");
+  Serial.print("y:"); 
+  Serial.print(Accelerometer.readY());        
+  Serial.print("  ");
+  Serial.print("z:"); 
+  Serial.println(Accelerometer.readZ());
+ 
+  delay(500);
+}
+
+  // OLED DISPLAY CODE
+
+/* 
+#include "Arduino_SensorKit.h"
+
+void setup() {
+  Oled.begin();
+  Oled.setFlipMode(true);
+}
+
+void loop() {
+  int random_value = random(0, 1023);   // create a random value
+
+  Oled.setFont(u8x8_font_chroma48medium8_r); 
+  Oled.setCursor(0, 3);
+  Oled.print("Value: ");
+  Oled.print(random_value);
+  delay(1000);
+*/
+
+
+
+
+
+
+
+
+
+
+
+  // ACCELEROMETER CODE
+
+/* 
+#include "Arduino_SensorKit.h"
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  while(!Serial);
+  
+  Accelerometer.begin();
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  // 3 axis
+  Serial.print("x:"); 
+  Serial.print(Accelerometer.readX()); 
+  Serial.print("  ");
+  Serial.print("y:"); 
+  Serial.print(Accelerometer.readY());        
+  Serial.print("  ");
+  Serial.print("z:"); 
+  Serial.println(Accelerometer.readZ());
+ 
+  delay(500);
+*/

@@ -1,3 +1,4 @@
+/*
 bool gameOver () 
 {
   return false;
@@ -5,10 +6,11 @@ bool gameOver ()
   {
     Oled.setCursor(0, 10);
     Oled.print("GAME OVER!");
-    return true;
+    return true ;
   }
     else
   {
     return false;
   }
 }
+*/
